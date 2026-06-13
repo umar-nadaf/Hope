@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HOPE 💖</title>
+
+    <style>
+        body{
+            margin:0;
+            text-align:center;
+            font-family:'Comic Sans MS', cursive;
+            background:#ffc0cb;
+            overflow:hidden;
+        }
+
+        h1{
+            color:#ff1493;
+            margin-top:50px;
+            font-size:40px;
+        }
+
+        button{
+            padding:15px 30px;
+            font-size:20px;
+            border:none;
+            border-radius:30px;
+            cursor:pointer;
+            margin:10px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        #yesBtn{
+            background:#ff69b4;
+            color:white;
+        }
+
+        #whyNot{
+            background:#ff1493;
+            color:white;
+            position:absolute;
+            left:55%;
+            top:220px;
+        }
+
+        #msg{
+            font-size:40px;
+            color:#d1006f;
+            margin-top:30px;
+            font-weight:bold;
+        }
+
+        .teddy{
+            font-size:60px;
+            position:absolute;
+            animation:dance 1s infinite alternate;
+        }
+
+        @keyframes dance{
+            from{
+                transform:translateY(0) rotate(-10deg);
+            }
+            to{
+                transform:translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .t1{left:10%;top:70%;}
+        .t2{left:30%;top:75%;}
+        .t3{left:50%;top:70%;}
+        .t4{left:70%;top:75%;}
+        .t5{left:90%;top:70%;}
+
+        .heart{
+            position:absolute;
+            color:red;
+            font-size:25px;
+            animation:float 6s linear infinite;
+        }
+
+        @keyframes float{
+            from{
+                transform:translateY(100vh);
+            }
+            to{
+                transform:translateY(-100px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>💖 Will You Choose ME! 💖</h1>
+
+    <button id="yesBtn" onclick="accept()">Yes 💕</button>
+    <button id="whyNot">Nope😜</button>
+
+    <p id="msg"></p>
+
+    <div class="teddy t1">🧸</div>
+    <div class="teddy t2">🧸</div>
+    <div class="teddy t3">🧸</div>
+    <div class="teddy t4">🧸</div>
+    <div class="teddy t5">🧸</div>
+
+    <script>
+        let prankActive = true;
+
+        const whyNotBtn = document.getElementById("whyNot");
+
+        whyNotBtn.addEventListener("mouseover", function(){
+
+            if(!prankActive) return;
+
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 100);
+
+            whyNotBtn.style.left = x + "px";
+            whyNotBtn.style.top = y + "px";
+        });
+
+        function accept(){
+            prankActive = false;
+            document.getElementById("msg").innerHTML =
+                "AWWWW 🥺💖🧸✨";
+        }
+
+        for(let i=0;i<20;i++){
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random()*100 + "vw";
+            heart.style.animationDuration =
+                (Math.random()*4+3) + "s";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+</html>
